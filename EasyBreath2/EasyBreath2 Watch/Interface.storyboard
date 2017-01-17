@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="EasyBreath2_Watch" customModuleProvider="target">
+                    <items>
+                        <group alignment="center" spacing="6" id="aXM-p6-TYM">
+                            <items>
+                                <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="heart" id="Zts-bE-sTG" userLabel="heartImage"/>
+                                <label width="30" alignment="center" verticalAlignment="center" text="---" textAlignment="center" id="e45-yw-io5" userLabel="valueLabel"/>
+                                <label alignment="right" verticalAlignment="center" text="BPM" id="kqV-Y7-2GL">
+                                    <color key="textColor" red="0.8980392814" green="0.15686275059999999" blue="0.14509804549999999" alpha="1" colorSpace="deviceRGB"/>
+                                </label>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" title="Start" id="tc5-9A-Y0A" userLabel="State Button">
+                            <connections>
+                                <action selector="stateButtonTapped" destination="AgC-eL-Hgc" id="CGO-wx-qGT"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="stateButton" destination="tc5-9A-Y0A" id="hDP-ia-3wX"/>
+                        <outlet property="valueLabel" destination="e45-yw-io5" id="7Bz-VE-isS"/>
+                        <segue destination="so1-ln-Bmv" kind="relationship" relationship="nextPage" id="9MP-nt-BGA"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="YnE-ec-3CW">
+            <objects>
+                <notificationController id="pY4-cB-RKL">
+                    <items>
+                        <label alignment="center" text="Alert Label" textAlignment="center" id="qT2-Ll-Oof"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="BreatheAlert" id="vXx-pD-ocQ"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="qT2-Ll-Oof" id="NRJ-PY-vdd"/>
+                        <segue destination="2p0-k0-teX" kind="relationship" relationship="dynamicNotificationInterface" id="rpX-b1-k63"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="593"/>
+        </scene>
+        <!--BreathingAnimation-->
+        <scene sceneID="ZHG-va-DDO">
+            <objects>
+                <controller identifier="BreathingAnimation" id="so1-ln-Bmv" customClass="BreatheAnimationInterfaceController" customModule="EasyBreath2_Watch_Extension">
+                    <items>
+                        <label alignment="center" textAlignment="center" id="jMj-aB-SbI"/>
+                        <group width="1" alignment="left" verticalAlignment="center" id="kA1-OK-AIf">
+                            <items>
+                                <imageView width="100" height="100" alignment="center" verticalAlignment="bottom" image="Steps" animationDuration="1" id="qSw-71-qWN"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="breatheCircle" destination="qSw-71-qWN" id="Nsm-Km-TxM"/>
+                        <outlet property="instructLabel" destination="jMj-aB-SbI" id="1aS-sa-sxh"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="547" y="364"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="J15-wM-iEk">
+            <objects>
+                <controller id="2p0-k0-teX" customClass="NotificationController" customModule="EasyBreath2_Watch_Extension">
+                    <items>
+                        <label alignment="center" text="Label" textAlignment="center" id="9i0-Ee-cf3"/>
+                    </items>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="9i0-Ee-cf3" id="acY-eZ-KVX"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="481" y="593"/>
+        </scene>
+    </scenes>
+</document>
